@@ -88,3 +88,16 @@ A + B = [[6, 8], [10, 12]]
 A × B = [[1*5+2*7, 1*6+2*8],
          [3*5+4*7, 3*6+4*8]]
       = [[19, 22], [43, 50]]
+
+      
+Part D — Systems Intuition
+Task 10 — CPU vs Memory
+python
+for x in huge_array:
+    total += x
+
+Three possible reasons it's slow despite a fast CPU:
+
+Cache misses: the array doesn't fit in cache, so the CPU frequently waits on slower main memory (RAM).
+Memory bandwidth limits: even sequential access can be bottlenecked by how fast data can be moved from RAM to the CPU.
+I/O or single-threaded overhead: the data may be loaded from disk/network, or the language/runtime adds per-iteration overhead (e.g. interpreted loop), and only one core is being used.
